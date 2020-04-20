@@ -25,10 +25,10 @@
     <ClCompile Include="prx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PS3_PPU_Project1\PS3_PPU_Project1\libc.c">
+    <ClCompile Include="libc.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PS3_PPU_Project1\PS3_PPU_Project1\utils.cpp">
+    <ClCompile Include="utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

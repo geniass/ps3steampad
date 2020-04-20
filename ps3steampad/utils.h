@@ -27,6 +27,8 @@ extern "C" {
 	// displays a notification on the PS3
 	void show_msg(char *msg);
 
+	void beep3();
+
 #ifdef __cplusplus 
 }
 #endif 
