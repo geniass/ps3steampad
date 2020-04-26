@@ -10,6 +10,7 @@
 #include <string.h>
 
 #include "utils.h"
+#include "usb.h"
 
 SYS_MODULE_INFO( ps3steampad, 0, 1, 1);
 SYS_MODULE_START(_ps3steampad_prx_entry);
@@ -28,15 +29,6 @@ static volatile uint8_t running;
 // function declarations
 static void steampad_stop_thread(uint64_t arg);
 static void steampad_thread(uint64_t arg);
-
-
-
-// for some reason the built-in sys_ppu_thread_exit freezes the console
-//sys_ppu_thread_exit(0);
-void ppu_thread_exit()
-{
-	system_call_1(41, 0); //ppu_thread_exit
-}
 
 
 // An exported function is needed to generate the project's PRX stub export library
@@ -81,13 +73,10 @@ static void steampad_stop_thread(uint64_t arg) {
 
 static void steampad_thread(uint64_t arg) {
 	int32_t i, r;
-	/*unsigned char xpad_data[MAX_XPAD_DATA_LEN];
-	XPAD_UNIT_t *unit;
-
 	r = init_usb();
 	if (r < 0) {
-		sys_ppu_thread_exit(0);
-	}*/
+		ppu_thread_exit();
+	}
 
 	// wait until we're back in xmb
 	sys_timer_sleep(10);

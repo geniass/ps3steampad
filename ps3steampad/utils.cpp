@@ -1,5 +1,20 @@
 #include "utils.h"
 
+#include <stdarg.h>
+
+/* VSH function signatures for casting */
+typedef int notify_func_type(int, const char *);
+static notify_func_type *vshtask_notify = NULL;
+
+typedef void* malloc_func_type(unsigned int size);
+static malloc_func_type *vsh_malloc = NULL;
+
+typedef int free_func_type(void *);
+static free_func_type *vsh_free = NULL;
+
+typedef int snprintf_func_type(char *_Restrict, size_t, const char *_Restrict, ...);
+static snprintf_func_type *vsh_snprintf = NULL;
+
 void *getNIDfunc(const char * vsh_module, uint32_t fnid, int32_t offset) {
 	// from webman-MOD source
 
@@ -73,4 +88,18 @@ void _free(void *ptr) {
 void beep3()
 {
 	system_call_3(392, 0x1004, 0xa, 0x1b6);
+}
+
+int snprintf(char *_Restrict s, size_t n, const char *_Restrict fmt, ...)
+{
+	va_list args;
+	va_start(args, fmt);
+
+	if (!vsh_snprintf) {
+		vsh_snprintf = (snprintf_func_type*)getNIDfunc("stdc", 0x3A840AE3, 0);
+	}
+	if (vsh_snprintf) {
+		return vsh_snprintf(s, n, fmt, args);
+	}
+	return -1;
 }
