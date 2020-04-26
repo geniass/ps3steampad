@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ps3steampad", "ps3steampad\ps3steampad.vcxproj", "{BB52C7A2-0A74-4FB8-B20F-D40A179AD824}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ppu_usb_testing", "ppu_usb_testing\ppu_usb_testing.vcxproj", "{9C51AE11-B642-4384-B4AA-E6604EBD064A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|PS3 = Debug|PS3
@@ -15,6 +17,10 @@ Global
 		{BB52C7A2-0A74-4FB8-B20F-D40A179AD824}.Debug|PS3.Build.0 = Debug|PS3
 		{BB52C7A2-0A74-4FB8-B20F-D40A179AD824}.Release|PS3.ActiveCfg = Release|PS3
 		{BB52C7A2-0A74-4FB8-B20F-D40A179AD824}.Release|PS3.Build.0 = Release|PS3
+		{9C51AE11-B642-4384-B4AA-E6604EBD064A}.Debug|PS3.ActiveCfg = Debug|PS3
+		{9C51AE11-B642-4384-B4AA-E6604EBD064A}.Debug|PS3.Build.0 = Debug|PS3
+		{9C51AE11-B642-4384-B4AA-E6604EBD064A}.Release|PS3.ActiveCfg = Release|PS3
+		{9C51AE11-B642-4384-B4AA-E6604EBD064A}.Release|PS3.Build.0 = Release|PS3
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
